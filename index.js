@@ -14,9 +14,13 @@ const bookings = require("./src/models/bookings")
 
 
 //port
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 const App = express();
 App.use(express.static('./dist/frontend'));
+//Middlewares
+App.use(cors());
+App.use(express.json());
+App.use(express.urlencoded({extended:true}));
 
 function verifyToken(req,res,next){
   if(!req.headers.authorization){
@@ -73,14 +77,9 @@ function verifyAdminToken(req,res,next){
 
 
 
-//Middlewares
-App.use(cors());
-App.use(express.json());
-App.use(express.urlencoded({extended:true}));
 
-App.listen(PORT, () => {
-    console.log(`Listening on ${ PORT }`);
-});
+
+
 
 
 App.post('/api/register', function(req,res){
@@ -572,6 +571,6 @@ App.route('/api/admcheckslot')
             res.sendFile(path.join(__dirname + './dist/frontend/index.html'));
         });
         
-        // App.listen(PORT, () => {
-        //     console.log(`Listening on ${ PORT }`);
-        // });
+        App.listen(PORT, () => {
+            console.log(`Listening on ${ PORT }`);
+        });
