@@ -22,6 +22,10 @@ App.use(cors());
 App.use(express.json());
 App.use(express.urlencoded({extended:true}));
 
+App.listen(PORT , () => {
+    console.log(`Listening on ${ PORT }`);
+});
+
 function verifyToken(req,res,next){
   if(!req.headers.authorization){
     return res.status(401).send('Unauthorized request');
@@ -566,9 +570,7 @@ App.route('/api/admcheckslot')
         })
         })
 
-        App.listen(PORT , () => {
-            console.log(`Listening on ${ PORT }`);
-        });
+
 
 
         App.get('/*',function(req,res){
