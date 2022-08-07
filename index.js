@@ -571,6 +571,6 @@ App.route('/api/admcheckslot')
             res.sendFile(path.join(__dirname + './dist/frontend/index.html'));
         });
         
-        App.listen(PORT, () => {
+        App.listen(PORT ||3000 , () => {
             console.log(`Listening on ${ PORT }`);
         });
