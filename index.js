@@ -78,6 +78,10 @@ App.use(cors());
 App.use(express.json());
 App.use(express.urlencoded({extended:true}));
 
+App.listen(PORT, () => {
+    console.log(`Listening on ${ PORT }`);
+});
+
 
 App.post('/api/register', function(req,res){
     res.header("Access-Control-Allow-Origin", "*");
@@ -568,6 +572,6 @@ App.route('/api/admcheckslot')
             res.sendFile(path.join(__dirname + './dist/frontend/index.html'));
         });
         
-        App.listen(PORT, () => {
-            console.log(`Listening on ${ PORT }`);
-        });
+        // App.listen(PORT, () => {
+        //     console.log(`Listening on ${ PORT }`);
+        // });
