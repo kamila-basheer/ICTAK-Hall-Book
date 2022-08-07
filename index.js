@@ -574,6 +574,6 @@ App.route('/api/admcheckslot')
 
 
         App.get('/*',function(req,res){
-            res.sendFile(path.join(__dirname + './dist/frontend/index.html'));
+            res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
         });
         
